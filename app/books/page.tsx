@@ -5,6 +5,21 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
+type Book = {
+  key: string
+  title: string
+  author_name?: string[]
+  first_publish_year?: number
+}
+
+type BookDetails = {
+  title: string
+  authors?: { name: string }[]
+  publish_date?: string
+  number_of_pages?: number
+  subjects?: string[]
+}
+
 export default function Books() {
   const [books, setBooks] = useState<Book[]>([])
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
