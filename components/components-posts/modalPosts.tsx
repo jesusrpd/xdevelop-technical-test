@@ -5,7 +5,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { AlertDialog, Button, Flex } from '@radix-ui/themes'
 
-export default function ModalPosts({open, setOpen, post}) {
+export default function ModalPosts({open, setOpen, post} : {open:any, setOpen:any,post:any}) {
   
 
   return (
@@ -16,8 +16,7 @@ export default function ModalPosts({open, setOpen, post}) {
       <AlertDialog.Content maxWidth="450px">
         <AlertDialog.Title>{post.title}</AlertDialog.Title>
         <AlertDialog.Description size="2">
-        {/* {comments.map(c => <Text as="p" key={c}>{c}</Text>)} */}
-        {post.body.split(/\n/).map(c => <Button key={c}>{c}</Button>)}
+        {post.body.split(/\n/).map((c:any) => <Button key={c}>{c}</Button>)}
         </AlertDialog.Description>
 
         <Flex gap="3" mt="4" justify="end">

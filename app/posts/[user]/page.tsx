@@ -33,7 +33,6 @@ export default function PostsUser({params}: {params: Promise<{user: string}>}){
 
     const {isPending, isError, error, data} = usePosts(user)
     const addPost = usePostsUserStroe(state => state.addPost)
-    const setPost = usePostsUserStroe(state => state.setPosts)
     const posts = usePostsUserStroe(state => state.posts)
 
     const postForm = {
@@ -49,10 +48,10 @@ export default function PostsUser({params}: {params: Promise<{user: string}>}){
       const new_post = {
         title: postForm.title,
         body: postForm.body,
-        user_id: Number(user)
+        userId:Number(user),
+        id: 1
       }
       addPost(new_post)
-      console.log(usePostsUserStroe.setState(new_post));
       console.log(posts);
     }
 
@@ -99,10 +98,10 @@ export default function PostsUser({params}: {params: Promise<{user: string}>}){
               </Flex>
 
               <Flex gap="3" mt="4" justify="end">
-                <Dialog.Close asChild>
+                <Dialog.Close>
                   <button className="Button green">Cancelar</button>
                 </Dialog.Close>
-                <Dialog.Close asChild>
+                <Dialog.Close>
                   <button className="Button bg-green-600 px-2 rounded-sm py-1" onClick={createPost}>Crear</button>
                 </Dialog.Close>
               </Flex>

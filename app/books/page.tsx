@@ -49,7 +49,7 @@ export default function Books() {
 
     const years = Array.from(
       new Set(docs.map((book: Book) => book.first_publish_year).filter(Boolean))
-    ).sort((a, b) => a - b)
+    ).sort((a:any, b:any) => a - b)
     setAvailableYears(years as number[])
   }
 

@@ -24,7 +24,7 @@ export default function Posts(){
             <p className="mt-6 text-lg/8 text-gray-400">Escoge un usuario para ver sus posts.</p>
             </div>
             <Flex gap="3" wrap="wrap">
-            {data.map(user =>(
+            {data.map((user:any) =>(
               <Link href={`/posts/${user.id}`} key={user.id}>
                 <Box width="350px">
                   <Card size="1">
